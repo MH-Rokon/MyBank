@@ -1,0 +1,100 @@
+<!-- transaction/money_transfer_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Transfer Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+    }
+
+    .money-transfer-form {
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-top: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #1877f2;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #1464a1;
+    }
+
+    .form-footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .form-footer a {
+        color: #1877f2;
+        text-decoration: none;
+    }
+
+    .form-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<form method="post" action="{% url 'money_transfer' %}" class="money-transfer-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_sender_account">Sender Account:</label>
+        <input type="text" id="id_sender_account" name="send_account_number" maxlength="10" required>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="id_receiver_account">Receiver Account:</label>
+        <input type="text" id="id_receiver_account" name="recipient_account_number" maxlength="10" required>
+    </div>
+    <div class="form-group">
+        <label for="id_amount">Amount:</label>
+        <input type="number" id="id_amount" name="amount" min="0.01" step="0.01" required>
+    </div>
+    <button type="submit">Transfer Money</button>
+</form>
+
+</body>
+</html>
