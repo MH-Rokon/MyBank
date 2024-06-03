@@ -21,7 +21,8 @@ SECRET_KEY = 'django-insecure-t78!7++m62%u3^aa!%v!'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://mybank-q32k.onrender.com','https://*.127.0.0.1']
 
 
 # Application definition
