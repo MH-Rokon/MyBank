@@ -16,7 +16,7 @@ urlpatterns = [
     path('history/', views.history, name='history'),
     path('drama/', views.drama, name='drama'),
     path('all/', views.all, name='ALL'),
-    # path('add_car/<int:id>/', views.add_car, name='add_car'),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
